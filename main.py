@@ -14,6 +14,13 @@ async def root(dia: date | None = None):
     request_externa = requests.get("https://testedefensoriapr.pythonanywhere.com/precos")
 
     if request_externa.status_code != 200:
-        return {"data": dia, "mensagem": "Não foi possível consumir a API externa :("}
+        return {
+            "data": dia,
+            "mensagem": "Não foi possível consumir a API externa :("
+        }
     else:
-        return {"data": dia, "conteudo": request_externa.json(), "mensagem": "API externa consumida com sucesso :)"}
+        return {
+            "data": dia,
+            "conteudo": request_externa.json(),
+            "mensagem": "API externa consumida com sucesso :)"
+        }
