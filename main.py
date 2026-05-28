@@ -1,13 +1,13 @@
 from fastapi import FastAPI
+from datetime import date
 
 app = FastAPI()
 
 
 @app.get("/")
-async def root():
-    return {"message": "Hello World"}
+async def root(dia: date | None = None):
 
+    if dia is None:
+        dia = date.today()
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+    return {"dia": dia}

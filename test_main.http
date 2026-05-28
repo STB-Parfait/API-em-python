@@ -1,11 +1,9 @@
-# Test your FastAPI endpoints
+### Teste COM parâmetro
+
+GET http://127.0.0.1:8000/?dia=2000-01-01
+Accept: application/json
+
+### Teste SEM parâmetro
 
 GET http://127.0.0.1:8000/
 Accept: application/json
-
-###
-
-GET http://127.0.0.1:8000/hello/User
-Accept: application/json
-
-###
