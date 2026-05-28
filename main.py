@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from datetime import date
+import requests
 
 app = FastAPI()
 
@@ -10,4 +11,6 @@ async def root(dia: date | None = None):
     if dia is None:
         dia = date.today()
 
-    return {"dia": dia}
+    request_externa = requests.get("https://testedefensoriapr.pythonanywhere.com/precos")
+
+    return {request_externa.status_code}
