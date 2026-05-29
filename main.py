@@ -2,10 +2,13 @@ from fastapi import FastAPI
 from datetime import date
 import requests
 
-app = FastAPI()
+app = FastAPI(docs_url="/docs", redoc_url="/redoc")
 
-
-@app.get("/")
+@app.get(
+    "/",
+    tags=["Rotas"],
+    response_description="Dia enviado como parâmetro (ou o dia de hoje) + Lista Recebida da API externa",
+)
 async def root(dia: date | None = None):
 
     if dia is None:
